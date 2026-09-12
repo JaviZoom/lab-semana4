@@ -19,7 +19,5 @@ dependencies = [
     "matplotlib>=3.9",
 ]
 
-# Proyecto de solo scripts, no una librería instalable: evita que uv construya
-# un paquete editable (ver nota en memoria sobre rutas con tildes en Windows).
 [tool.uv]
 package = false

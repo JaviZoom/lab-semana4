@@ -1,12 +1,3 @@
-"""Actividad "De la web a una API" - lab semana 4.
-
-Baja las estadisticas de equipos de la NHL, entrena un modelo que predice si
-una temporada fue ganadora, guarda el pipeline entrenado y genera los
-archivos que necesita Docker (servir.py y Dockerfile) para exponerlo como API.
-
-Ejecutar con: uv run python pipeline.py
-"""
-
 import os
 import pathlib
 import time
