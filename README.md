@@ -153,9 +153,26 @@ cómo el contenedor consigue el modelo:
 Con eso el mismo Dockerfile sirve para correr en mi máquina y para
 desplegarse en la nube sin tocar nada más.
 
-**URL pública:** `<pendiente — pegar aquí la URL que te da Railway, ej. https://lab-semana4-production.up.railway.app>`
+**URL pública:** https://lab-semana4-production.up.railway.app
 
-Captura de `https://<tu-dominio>/docs` respondiendo a `/predecir`:
+Prueba real de `GET /predecir?gf=300&ga=250` sobre esa URL, respondiendo `200 OK`:
 
-`<pendiente — agregar capturas/api_railway_predecir.png cuando la tengas>`
+```json
+{
+  "ganadora": true,
+  "probabilidad": 0.895
+}
+```
+
+Parámetros enviados desde `/docs` en Railway:
+
+![Parámetros en Railway](capturas/railway_predecir_parametros.png)
+
+Respuesta del servidor (código 200, cuerpo y headers, servido desde `railway-hikari`):
+
+![Respuesta en Railway](capturas/railway_predecir_respuesta.png)
+
+Esquemas de respuesta documentados por FastAPI en producción:
+
+![Esquemas en Railway](capturas/railway_predecir_esquemas.png)
 
