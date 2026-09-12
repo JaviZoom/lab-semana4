@@ -143,7 +143,8 @@ def main() -> None:
         "WORKDIR /app",
         "RUN pip install --no-cache-dir fastapi uvicorn scikit-learn joblib",
         "COPY servir.py .",
-        'CMD ["uvicorn", "servir:app", "--host", "0.0.0.0", "--port", "8000"]',
+        "COPY modelos ./modelos",  # el modelo viaja dentro de la imagen (necesario en la nube)
+        'CMD ["sh", "-c", "uvicorn servir:app --host 0.0.0.0 --port ${PORT:-8000}"]',
     ]
 
     pathlib.Path("servir.py").write_text("\n".join(servir) + "\n", encoding="utf-8")

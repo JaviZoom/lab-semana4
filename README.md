@@ -133,3 +133,29 @@ docker build -t nhl-api .
 docker run -p 8000:8000 -v "${PWD}/modelos:/app/modelos" nhl-api
 # abrir http://localhost:8000/docs
 
+
+## 7 · Del localhost a Internet (opcional)
+
+Para que la API deje de vivir solo en mi computadora, cambié la estrategia de
+cómo el contenedor consigue el modelo:
+
+- **En local** usaba -v para montar mi carpeta modelos/ dentro del
+  contenedor. Eso funciona en mi máquina, pero Railway no tiene esa carpeta
+  para montar.
+- Por eso el Dockerfile ahora copia el modelo dentro de la imagen con
+  COPY modelos ./modelos, así el .joblib viaja empaquetado junto con el
+  código y ya no depende de -v.
+- También cambié el CMD para leer el puerto desde la variable de entorno
+  PORT (con 8000 como valor por defecto): en mi computadora esa variable no
+  existe y sigue usando 8000, pero en Railway es la plataforma quien decide
+  el puerto y lo pasa por ahí.
+
+Con eso el mismo Dockerfile sirve para correr en mi máquina y para
+desplegarse en la nube sin tocar nada más.
+
+**URL pública:** `<pendiente — pegar aquí la URL que te da Railway, ej. https://lab-semana4-production.up.railway.app>`
+
+Captura de `https://<tu-dominio>/docs` respondiendo a `/predecir`:
+
+`<pendiente — agregar capturas/api_railway_predecir.png cuando la tengas>`
+
