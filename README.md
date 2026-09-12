@@ -2,7 +2,7 @@
 
 Predicción de si una temporada de un equipo de la NHL fue "ganadora" (win_pct > 0.5)
 a partir de gf (goles a favor), ga (goles en contra) y dif (diferencia de goles).
-Datos bajados de [scrapethissite.com/pages/forms](https://www.scrapethissite.com/pages/forms/?page_num={}&per_page=100)
+Datos bajados de [scrapethissite.com/pages/forms](https://www.scrapethissite.com/pages/forms/?page_num=1&per_page=100)
 (582 filas, 6 páginas de 100 equipos).
 
 Todo el flujo (scraping → dataset → modelo → API) está en [pipeline.py](pipeline.py),
