@@ -72,6 +72,27 @@ modelo, en cambio, sí detecta el 70 % de las temporadas ganadoras reales
 diferencia real de que el modelo aprendió algo, en vez de solo repetir la
 clase mayoritaria.
 
+### Matriz de confusión (mi modelo, sobre las 175 filas de prueba)
+
+![Matriz de confusión](matriz_confusion.png)
+
+|                  | Predicho: perdedora | Predicho: ganadora |
+|------------------|----------------------|----------------------|
+| **Real: perdedora** | 99 (verdadero negativo) | 15 (falso positivo) |
+| **Real: ganadora**  | 18 (falso negativo)     | 43 (verdadero positivo) |
+
+De las 61 temporadas que de verdad fueron ganadoras, el modelo encontró 43 y
+se le escaparon 18 (esos 18 son el costo de tener recall 0.70). De las 114
+que de verdad fueron perdedoras, acertó 99 y se equivocó en 15, diciendo
+"ganadora" cuando no lo era (esos 15 explican la precisión 0.74: de las
+43+15=58 veces que predijo "ganadora", solo 43 eran correctas). Los dos
+tipos de error están bastante balanceados (15 falsos positivos vs. 18 falsos
+negativos), no hay un sesgo fuerte hacia inventar ganadoras ni hacia
+ignorarlas — el modelo simplemente tiene un margen de error parecido en
+ambas direcciones, coherente con que `gf`, `ga` y `dif` explican bastante
+pero no toda la historia de una temporada (factores como lesiones, calendario
+o rachas no están en estos datos).
+
 ## 4 · Por qué se guarda el Pipeline completo y no solo la regresión logística
 
 StandardScaler calculó, con los datos de entrenamiento, la media y la
