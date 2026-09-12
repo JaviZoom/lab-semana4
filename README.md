@@ -89,7 +89,7 @@ que de verdad fueron perdedoras, acertó 99 y se equivocó en 15, diciendo
 tipos de error están bastante balanceados (15 falsos positivos vs. 18 falsos
 negativos), no hay un sesgo fuerte hacia inventar ganadoras ni hacia
 ignorarlas — el modelo simplemente tiene un margen de error parecido en
-ambas direcciones, coherente con que `gf`, `ga` y `dif` explican bastante
+ambas direcciones, coherente con que gf, ga y dif explican bastante
 pero no toda la historia de una temporada (factores como lesiones, calendario
 o rachas no están en estos datos).
 
